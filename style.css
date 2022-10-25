@@ -1,0 +1,500 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.principal{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#navMenu{
+ display: flex;
+ width: 100%;
+ flex-direction: row;
+ background-color: red;
+ align-items: center;
+}
+
+/* .logo{
+    display: flex;
+    width: 15%;
+    background-color: black;
+    text-align: center;
+    border-radius: 50%;
+    background-size: 100%;    
+    background-repeat: no-repeat;
+} */
+.menu{
+    width: 70%;
+    /* background-color: rgb(31, 149, 131); */
+    flex-direction: column;
+}
+.figureBanner{
+    height: 100%;
+    /* text-align: center; */
+    display: flex;
+    /* margin: auto; */
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+}
+.imgCentral{
+    width: 80%;
+    border: solid 5px #ddd;
+    border-radius: 7px;
+    /* height: 100%; */
+}
+figure#figureCentral{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 100%;
+    /* text-align: center; */
+    display: flex;
+    /* margin: auto; */
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+}
+main{
+    width: 100%;
+    /* background-color: rgb(62, 148, 147); */
+    /* background-image: url(https://i.pinimg.com/236x/ec/58/d3/ec58d32dcc54b611203f96d71c8b6824.jpg); */
+    background-size: 100%;
+    
+}
+/* section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+} */
+.imgLogo{
+    width: 100px;
+}
+article{
+    margin-top: 10px;
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+}
+.articleText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+h3{
+    font-family: "Saira Semi Condensed", sans-serif;
+    padding-bottom: 5px;
+    color: #3175b0;
+}
+.articleText h2{
+    font-family: "Saira Semi Condensed", sans-serif;
+    padding-bottom: 20px;
+    color: #0074d9;
+}
+.divLabel{
+    padding: 10px;
+    padding-left: 0;
+}
+.divInputs{
+    padding: 10px;
+    padding-left: 0;
+    padding-top: 0;
+    
+}
+.divButton{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.inputuser{
+    padding:10px;
+     
+    width: 98%;
+}
+
+.buttonsPrimary{
+width: 100px;
+    font-family: inherit;
+font-size: .875rem;
+font-weight: 700;
+font-weight: 500;
+cursor: pointer;
+display: inline-block;
+line-height: 1.125rem;
+padding: .5rem 1rem;
+margin: 0;
+height: auto;
+border: 1px solid transparent;
+vertical-align: middle;
+-webkit-appearance: none;
+    color: #fff;
+background-color: #0074d9;
+border-radius: 3px;
+}
+.buttonsPrimary, .buttonsPrimary:hover {
+    text-decoration: none;
+  }
+
+#fsForm{
+    padding: 10px;
+}
+.forminputs{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.forminputsradius{
+    justify-content: space-evenly;
+}
+.labelform{
+    min-width: 150px;
+}
+.inputsform{
+    padding:7px;
+    width: 100%;
+}
+.inputsformradio{
+    padding:0px;
+    width: 20px;
+}
+
+footer{
+    color: white;
+    width: 100%;
+    background-color: rgb(65, 131, 218);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+}
+
+
+h5{
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    color: wheat;
+    text-align: center;
+}
+
+
+#btnBenja {
+    background-color: yellow;
+    border: 0 solid #E5E7EB;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none #000000 solid;
+    text-decoration-thickness: auto;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#btnBenja:after {
+    content: '';
+    position: absolute;
+    border: 2px solid #000000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+#btnLenny{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #f372f3;
+    background-color: pink;
+    border-radius: 6px;
+    border: 2px solid darkviolet;
+  }
+  #btnLenny:hover{
+    color: darkviolet;
+    background-color: lightpink;
+  }
+
+  #btnDaniel{
+    background-image: -webkit-linear-gradient(top, green, #2079b0);
+  background-image: -moz-linear-gradient(top, green, #2079b0);
+  background-image: -ms-linear-gradient(top, green, #2079b0);
+  background-image: -o-linear-gradient(top, green, #2079b0);
+  background-image: linear-gradient(to bottom, green, #2079b0);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;text-shadow: 3px 2px 1px #9daef5;
+  -webkit-box-shadow: 6px 5px 24px #666666;
+  -moz-box-shadow: 6px 5px 24px #666666;
+  box-shadow: 6px 5px 24px #666666;font-family: Arial;
+  color: #fafafa;
+  font-size: 27px;
+  padding: 19px;
+  text-decoration: none;
+  }
+  #btnDaniel:hover{
+    background: #2079b0;  background-image: -webkit-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -moz-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -ms-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -o-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: linear-gradient(to bottom, #2079b0, #eb94d0);  text-decoration: none;
+  }
+
+ul.lista {
+    width: 100%;
+    list-style: none;
+    background-color: #48abe0;
+    color: white;
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+ul.lista li {
+    display: inline-block;
+    padding: 0 0.5rem;
+    min-width: 7rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+ul.lista li:not(:last-child) {
+    border-right: 1px solid white;
+}
+
+/*-------------Reset-------------*/
+button {
+    background: none;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:focus,
+  input:focus {
+    outline: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /*-------------Layout-------------*/
+  body {
+    line-height: 1.5em;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* section {
+    height: 100vh;
+  } */
+  .fondogray{
+      background-color: rgb(238, 236, 236);
+  }
+  #sectionHome {
+    background-color: #ddd;
+    height: 300px;
+    padding: 10px;
+  }
+  #sectionArticles {
+    /* background-color: #ddd; */
+    background-color: white;
+    /* height: 300px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+  }
+  .iconchecklist{
+    margin-bottom: -5px;
+  }
+  
+  #about {
+    background-color: #aaa;
+  }
+  
+  #work {
+    background-color: #888;
+  }
+  
+  #contact {
+    background-color: #666;
+  }
+  
+  /*-------------Helpers-------------*/
+  .skew {
+    transform: skew(-20deg, -0deg);
+  }
+  
+  .un-skew {
+    transform: skew(20deg);
+  }
+  
+  /*-------------Nav-------------*/
+  .divBienvenodo{
+       display: flex; align-items: center;
+  }
+  #nav-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    /* z-index: 100; */
+  }
+  
+  #nav {
+    background-color: #fff;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    font-family: "Saira Semi Condensed", sans-serif;
+    height: 4em;
+    /* overflow: hidden; */
+  }
+  #nav.nav-visible {
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .nav {
+    display: flex;
+    height: 4em;
+    line-height: 4em;
+    flex-grow: 1;
+  }
+  
+  .nav-link,
+  .logo {
+    padding: 0 1em;
+  }
+  
+  span.gradient {
+    background: #578af8;
+    background: -webkit-linear-gradient(45deg, #548dae, #585eff);
+    background: linear-gradient(45deg, #57bdf8, #5869ff);
+    padding: 0 1em;
+    position: relative;
+    right: 1em;
+    margin-right: 15px;
+    /* margin-right: auto; */
+  }
+  span.gradient:hover {
+    animation-name: logo-hover;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.17, 0.57, 0.31, 0.85);
+  }
+  
+  h1.logo {
+    font-weight: 300;
+    font-size: 1.75em;
+    line-height: 0.75em;
+    color: #fff;
+  }
+  
+  h1.logo a, a:active, a:hover, a:visited {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .nav-link {
+    text-transform: uppercase;
+    text-align: center;
+    border-top: 0.5px solid #ddd;
+  }
+  
+  a:link, a:visited, a:active {
+    text-decoration: none;
+    color: #57aaf8;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  
+  .btn-nav {
+    color: #577af8;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+  
+  @media (min-width: 800px) {
+    #nav-wrapper {
+      overflow: hidden;
+    }
+    #nav {
+      overflow: hidden;
+      flex-direction: row;
+    }
+    .nav-link {
+      border-top: none;
+    }
+    .right {
+      /* overflow: hidden; */
+      flex-direction: row;
+      justify-content: end;
+      position: relative;
+      left: 1em;
+      height: auto;
+    }
+    .btn-nav {
+      display: none;
+    }
+    .nav a:link.active, a:visited.active, a:active.active {
+      background: #5795f8;
+      background: -webkit-linear-gradient(45deg, #548dae, #585eff);
+      background: linear-gradient(45deg, #57bdf8, #5869ff);
+      color: #fff;
+    }
+    .nav-link-span {
+      transform: skew(20deg);
+      display: inline-block;
+    }
+    .nav-link {
+      transform: skew(-20deg);
+      color: #777;
+      text-decoration: none;
+    }
+    .nav-link:last-child {
+      padding-right: 3em;
+    }
+    a:hover.nav-link:not(.active) {
+      color: #444;
+      background: #ddd;
+      background: linear-gradient(45deg, #fff, #ddd);
+    }
+  }
+  @keyframes logo-hover {
+    20% {
+      padding-right: 0em;
+    }
+    100% {
+      padding-right: 5em;
+    }
+  }

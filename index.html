@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <div class="principal">
+        <!-- navbar -->
+        <header id="nav-wrapper">
+            <nav id="nav">
+                <div class="nav left">
+                    <a href="#home" class="nav-link active"><span class="nav-link-span"><span class="u-nav">Inicio</span></span></a>
+                    <a href="#about" class="nav-link"><span class="nav-link-span"><span class="u-nav">Pacientes</span></span></a>
+                    <a href="#work" class="nav-link"><span class="nav-link-span"><span class="u-nav">Doctores</span></span></a>
+                    <a href="#contact" class="nav-link"><span class="nav-link-span"><span class="u-nav">Citas</span></span></a>
+                  </div>
+                <div class="nav right">
+
+                <span class="gradient skew divBienvenodo"><h1 class="logo un-skew">Bienvenid@ <span id="textuser">Daniel</span></h1></span>
+                <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+              </div>
+
+            </nav>
+          </header>
+
+        <main>
+            <section id="sectionHome">
+                <figure class="figureBanner">
+                    <img src="img/banner1.jpg" alt="">
+                </figure>
+            </section>
+            <section id="sectionArticles">
+                <article class="articleLogin">
+                    <div class="divLabel">
+                        <h3>INICIAR SESIÓN</h3>
+                    </div>
+                    <div class="divInputs">
+                        <input type="text" id="inputNameUser" class="inputuser" placeholder="Ingrese su usuario...">
+                    </div>
+                    <div class="divButton">
+                        <button class="buttonsPrimary" onclick="setNameUser()">Ingresar</button>
+                    </div>
+                </article>
+                <article class="articleImg">
+                    <figure id="figureCentral">
+                        <img src="img/img1.png" alt="" class="imgCentral">
+                    </figure>
+                </article>
+                <article class="articleText">
+                        <h2>CLÍNICA  DENTAL  SAMUELITO</h2>
+                        <p>
+                            Somos un equipo de 3 odontólogos profesionales, 2 mujeres y 1 varon. Los cuales cuentan con las últimas tendencias y tecnologías en la industria dental.
+                        </p>
+                        <p>
+                            Somos conocidos por los tratamientos dentales más  indoloros que nuestros clientes han adorado. Ya sea que se trate de tratamientos dentales cosméticos, endodoncias, extracción de dientes o más, le aseguramos la mejor ayuda en un ambiente cómodo y amigable.
+                        </p>
+                </article>
+                <article class="articleText">
+                    <h2>SERVICIOS</h2>
+                   <p>
+                    <svg class="iconchecklist" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#5795f8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9 12l2 2l4 -4"></path>
+                     </svg>
+                     Estética y cosmética dental
+                   </p>
+                   <p>
+                    <svg class="iconchecklist" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#5795f8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9 12l2 2l4 -4"></path>
+                     </svg>
+                     Endodoncia
+                   </p>
+                   <p>
+                    <svg class="iconchecklist" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#5795f8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9 12l2 2l4 -4"></path>
+                     </svg>
+                     Implantes dentales
+                   </p>
+                   <p>
+                    <svg class="iconchecklist" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#5795f8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9 12l2 2l4 -4"></path>
+                     </svg>
+                     Brackets
+                   </p>
+                   <p>
+                    <svg class="iconchecklist" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#5795f8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9 12l2 2l4 -4"></path>
+                     </svg>
+                     Limpieza dental
+                   </p>
+                </article>
+                <article class="articleText">
+                    <h3>NUESTRA OBJETIVO</h3>
+                    <p>
+                        Mantener nuestro servicio como un referente a brindando a cada paciente un diagnóstico y tratamiento de calidad y eficiencia, con profesionales especializados en el área con la más alta calidad tecnológica, humana y vocación de servicio.
+
+                    </p>
+                </article>
+                <article class="articleText">
+
+                    <form action="#">
+                        <fieldset id="fsForm">
+                          <legend><h3>FORMULARIO</h3></legend>
+                          <h3>Convertir</h3>
+                          <div class="forminputs forminputsradius">
+
+                                <label class="labelform">   <input type="radio" class="inputsformradio" name="conv" value="1" checked onchange="changeRadio(1)"> Bolivianos a Dólares</label>
+
+                                <label class="labelform"> <input type="radio" class="form-control inputsformradio" name="conv" onchange="changeRadio(2)" value="2"> Dólares a Bolivianos</label>
+                          </div>
+
+                          <div class="forminputs">
+                            <label class="labelform">Monto en Bolivianos</label>
+                              <input type="text" class="form-control inputsform" id="inputconv1" placeholder="Ingrese el monto...">
+                          </div>
+
+                          <div class="forminputs">
+                            <label class="labelform">Monto en Dolares</label>
+                              <input type="text" class="form-control fondogray inputsform" id="inputconv2" placeholder="Equivalencia...">
+                          </div>
+                          <div class="divButton">
+                            <button type="button" id="btn-convertir" onclick="convertTipoCambio()" class="buttonsPrimary">Convertir</button>
+                        </div>
+                        </fieldset>
+                    </form>
+
+                    <script>
+
+                        document.addEventListener("DOMContentLoaded", function(event) {
+                            changeRadio(1);
+                        });
+                        function convertTipoCambio() {
+                            var radios = document.getElementsByName('conv');
+                            for (var radio of radios)
+                            {
+                                if (radio.checked) {
+                                    if (radio.value == '1') {
+                                        var element1 = document.getElementById("inputconv1");
+                                        var res1 = parseFloat(element1.value);
+                                        var res = res1 / 6.96;
+                                        document.getElementById("inputconv2").value = res.toFixed(2);
+
+                                    }else if(radio.value == '2'){
+                                        var element2 = document.getElementById("inputconv2");
+                                        var res1 = parseFloat(element2.value);
+                                        var res = res1 * 6.96;
+                                        document.getElementById("inputconv1").value = res.toFixed(2);
+                                    }
+                                }
+                            }
+                        }
+                        function changeRadio(val) {
+                            if (val == '1') {
+                                var element1 = document.getElementById("inputconv1");
+                                var element2 = document.getElementById("inputconv2");
+                                element1.classList.remove("fondogray");
+                                element2.classList.add("fondogray");
+                                element1.setAttribute('placeholder', 'Ingrese el monto');
+                                element2.setAttribute('placeholder', 'Equivalencia...');
+                            }else if(val == '2'){
+                                var element1 = document.getElementById("inputconv1");
+                                var element2 = document.getElementById("inputconv2");
+                                element1.classList.add("fondogray");
+                                element2.classList.remove("fondogray");
+                                element1.setAttribute('placeholder', 'Equivalencia...');
+                                element2.setAttribute('placeholder', 'Ingrese el monto');
+                            }
+                        }
+
+                        function setNameUser() {
+                            var username = document.getElementById("inputNameUser");
+                            // textuser
+
+                        }
+                    </script>
+                </article>
+            </section>
+
+        </main>
+
+
+
+        <footer>
+            <div class="">
+                Copyright © 2022 developerDanielPinto
+            </div>
+
+        </footer>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>
