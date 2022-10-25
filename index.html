@@ -20,7 +20,7 @@
                   </div>
                 <div class="nav right">
 
-                <span class="gradient skew divBienvenodo"><h1 class="logo un-skew">Bienvenid@ <span id="textuser">Daniel</span></h1></span>
+                <span class="gradient skew divBienvenodo"><h1 class="logo un-skew">Bienvenid@ <span id="textuser"></span></h1></span>
                 <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
               </div>
 
@@ -116,9 +116,7 @@
                           <legend><h3>FORMULARIO</h3></legend>
                           <h3>Convertir</h3>
                           <div class="forminputs forminputsradius">
-
                                 <label class="labelform">   <input type="radio" class="inputsformradio" name="conv" value="1" checked onchange="changeRadio(1)"> Bolivianos a Dólares</label>
-
                                 <label class="labelform"> <input type="radio" class="form-control inputsformradio" name="conv" onchange="changeRadio(2)" value="2"> Dólares a Bolivianos</label>
                           </div>
 
@@ -181,8 +179,8 @@
                         }
 
                         function setNameUser() {
-                            var username = document.getElementById("inputNameUser");
-                            // textuser
+                            var username = document.getElementById("inputNameUser").value;
+                            document.getElementById('textuser').innerHTML  = username;
 
                         }
                     </script>
