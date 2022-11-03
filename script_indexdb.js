@@ -30,6 +30,7 @@ const form_edit_paciente = document.querySelector("#form_edit_paciente");
 const submit_update = document.querySelector("#submit_edit_paciente");
 
 const select_form_citas = document.querySelector(".select_form_citas");
+const select_form_citas_edit = document.querySelector(".select_form_citas_edit");
 
 
 // REGISTRAR PACIENTE
@@ -54,6 +55,7 @@ if (submit_paciente != null) {
             })
 
             toastr["success"]("Registrado con éxito", "Paciente "+form_paciente[1].value);
+            document.getElementById("form_paciente").reset();
             mostrarPacientes();
 
         }
@@ -107,10 +109,14 @@ function selectFormPacientes() {
             let store = tx.objectStore('paciente')
             let cursor = store.openCursor();
             select_form_citas.innerHTML = "<option value=''>Seleccione un paciente</option>";
+            select_form_citas_edit.innerHTML = "<option value=''>Seleccione un paciente</option>";
             cursor.onsuccess = () => {
                 let curRes = cursor.result;
                 if (curRes) {
                     select_form_citas.innerHTML += `
+                    <option value='${curRes.key}'>${curRes.value.nombre}</option>
+                    `;
+                    select_form_citas_edit.innerHTML += `
                     <option value='${curRes.key}'>${curRes.value.nombre}</option>
                     `;
                     curRes.continue()
@@ -135,6 +141,7 @@ function eliminarPaciente(e) {
 
 
 let updateKey;
+let getKeyPaciente;
 
 function modificarPaciente (e) {
     // submit.style.display = "none";
@@ -153,7 +160,7 @@ function modificarPaciente (e) {
             // note.innerHTML += '<li>Request successful.</li>';
 
             const myPacienteEdit = pacienteEdit.result;
-       
+
             $('#form_edit_paciente #ci').val(myPacienteEdit.ci);
             $('#form_edit_paciente #nombre').val(myPacienteEdit.nombre);
             $('#form_edit_paciente #telefono').val(myPacienteEdit.telefono);
@@ -162,6 +169,53 @@ function modificarPaciente (e) {
             $('#btnModalEditPaciente').click();
         };
     }
+}
+
+let getpaciente;
+let getdoctor;
+
+
+function getDataPacienteDoctor (e,ee,date,trat,keycita) {
+    // submit.style.display = "none";
+    // updates.style.display = "block";
+    getKeyPaciente = e;
+    let idb_clinica = indexedDB.open('clinica', 1)
+    idb_clinica.onsuccess = () => {
+        let res = idb_clinica.result;
+        let tx = res.transaction('paciente', 'readwrite')
+        let store = tx.objectStore('paciente')
+        const pacienteEdit = store.get(e);
+        pacienteEdit.onsuccess = (event) => {
+            const myPacienteEdit = pacienteEdit.result;
+            getpaciente = myPacienteEdit.nombre;
+            $('#inputauxpaciente').val(getpaciente).change();
+            $('#inputauxfecha').val(date);
+            $('#inputauxtratamiento').val(trat);
+            $('#inputauxkey').val(keycita);
+
+            // return getpaciente;
+        };
+
+        let txdoc = res.transaction('doctor', 'readwrite')
+        let storedoc = txdoc.objectStore('doctor')
+        const doctorEdit = storedoc.get(ee);
+        doctorEdit.onsuccess = (event) => {
+            const myDoctorEdit = doctorEdit.result;
+            getdoctor = myDoctorEdit.nombre;
+            $('#inputauxdoctor').val(getdoctor).change();
+            $('#inputauxfecha').val(date);
+            $('#inputauxtratamiento').val(trat);
+            $('#inputauxkey').val(keycita);
+
+            // return getdoctor;
+        };
+
+        // idb_clinica.addEventListener('complete', (event) => {
+        //     console.log('Transaction was completed');
+        // });
+
+    }
+
 }
 
 if (submit_update) {
@@ -200,6 +254,7 @@ const form_edit_doctor = document.querySelector("#form_edit_doctor");
 const submit_update_doctor = document.querySelector("#submit_edit_doctor");
 
 const select_form_doctores = document.querySelector(".select_form_doctores");
+const select_form_doctores_edit = document.querySelector(".select_form_doctores_edit");
 
 
 // REGISTRAR DOCTOR
@@ -221,12 +276,13 @@ if (submit_doctor) {
                 correo: form_doctor[2].value,
                 especialidad: form_doctor[3].value
             })
-    
-            toastr["success"]("Registrado con éxito", "Doctor "+form_doctor[0].value);
+
+            toastr["success"]("Registrado con éxito", "Doctor(a) "+form_doctor[0].value);
+            document.getElementById("form_doctor").reset();
             mostrarDoctores();
-    
+
         }
-    })    
+    })
 }
 
 
@@ -249,7 +305,7 @@ function mostrarDoctores() {
                 if (curRes) {
                     // console.log(curRes.value.name);
                     tbody_doctor.innerHTML += `
-                    <tr> 
+                    <tr>
                     <td>${curRes.value.nombre}</td>
                     <td>${curRes.value.telefono}</td>
                     <td>${curRes.value.correo}</td>
@@ -277,7 +333,8 @@ function selectFormDoctores() {
             let store = tx.objectStore('doctor')
             let cursor = store.openCursor();
             select_form_doctores.innerHTML = "<option value=''>Seleccione un doctor</option>";
-          
+            select_form_doctores_edit.innerHTML = "<option value=''>Seleccione un doctor</option>";
+
             cursor.onsuccess = () => {
                 // console.log('cursor');
                 // console.log(cursor);
@@ -286,6 +343,10 @@ function selectFormDoctores() {
                 if (curRes) {
                     // console.log(curRes.value.name);
                     select_form_doctores.innerHTML += `
+                    <option value='${curRes.key}'>${curRes.value.nombre} - ${curRes.value.especialidad}</option>
+                    `;
+
+                    select_form_doctores_edit.innerHTML += `
                     <option value='${curRes.key}'>${curRes.value.nombre} - ${curRes.value.especialidad}</option>
                     `;
                     curRes.continue()
@@ -354,7 +415,7 @@ if (submit_update_doctor != null) {
             $('#btn_close_form_edit_doctor').click();
             mostrarDoctores();
         }
-    })    
+    })
 }
 
 
@@ -369,7 +430,7 @@ const form_edit_cita = document.querySelector("#form_edit_cita");
 const submit_update_cita = document.querySelector("#submit_edit_cita");
 
 
-// REGISTRAR DOCTOR
+// REGISTRAR CITA
 if (submit_cita) {
     submit_cita.addEventListener('click', () => {
 
@@ -388,11 +449,28 @@ if (submit_cita) {
                 doctor: form_cita[2].value,
                 tratamiento: form_cita[3].value
             })
-    
+
             toastr["success"]("Registrado con éxito", "Nueva cita");
-            // mostrarDoctores();
-    
+            document.getElementById("form_cita").reset();
+            location.reload();
+
         }
-    })    
+    })
+
+
+    function eliminarCita(e) {
+        let idb_clinica = indexedDB.open('clinica', 1)
+        idb_clinica.onsuccess = () => {
+            let res = idb_clinica.result;
+            let tx = res.transaction('cita', 'readwrite')
+            let store = tx.objectStore('cita')
+            store.delete(e)
+            toastr["error"]("Realizado con éxito", "Eliminación de Cita");
+            location.reload();
+        }
+    }
+
+
+
 }
 
