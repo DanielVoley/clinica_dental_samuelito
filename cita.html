@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+<!-- FULL CALENDAR -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.js"></script>
+
+<!-- DATEPICKER -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker-standalone.css"> -->
+<link rel="stylesheet" href="datetimepicker.css">
+
+
+<body>
+    <div class="principal">
+        <!-- navbar -->
+        <header id="nav-wrapper">
+            <nav id="nav">
+                <div class="nav left">
+                  <a href="index.html" class="nav-link"><span class="nav-link-span"><span
+                    class="u-nav">Inicio</span></span></a>
+                  <a href="paciente.html" class="nav-link"><span class="nav-link-span"><span
+                              class="u-nav">Pacientes</span></span></a>
+                  <a href="doctor.html" class="nav-link">
+                      <span class="nav-link-span">
+                          <span class="u-nav">Doctores</span>
+                      </span>
+                  </a>
+                  <a href="cita.html" class="nav-link active">
+                      <span class="nav-link-span">
+                          <span class="u-nav">Citas</span>
+                      </span>
+                  </a>
+                </div>
+                <div class="nav right">
+
+                    <span class="gradient skew divBienvenodo">
+                        <h1 class="logo un-skew">Bienvenid@ <span id="textuser"></span></h1>
+                    </span>
+                    <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+                </div>
+
+            </nav>
+        </header>
+        <main style="height:720px;">
+            <section style="padding: 15px;">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="card">
+                            <div class="card-header bg-info" style="color: white;">
+                              Registro de Citas
+                            </div>
+                            <div class="card-body">
+                                <form id="form_cita">
+                                    <div class="form-group">
+                                        <label for="fecha">* Fecha y hora</label>
+                                        <input type="text" class="form-control date_cita" id="fecha" placeholder="Ingrese la fecha y hora." required>
+                                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="paciente">* Paciente</label>
+                                        <select name="paciente" class="form-control select_form_citas" id="paciente" required>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="doctor">* Doctor</label>
+                                      <select name="doctor" class="form-control select_form_doctores" id="doctor" required>
+                                      </select>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="nombre">* Tratamiento</label>
+                                      <select name="especialidad" class="form-control" id="especialidad">
+                                        <option value="">Selecicone una tratamiento</option>
+                                          <option value="Consulta">Consulta</option>
+                                          <option value="Conductos">Conductos</option>
+                                          <option value="Estracciones">Estracciones</option>
+                                          <option value="Braquets">Braquets</option>
+                                          <option value="Limpieza">Limpieza</option>
+                                      </select>
+                                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                    </div>
+
+                                    <button type="button" id="submit_cita" class="btn btn-info" style="float: right;">Registrar</button>
+                                  </form>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div id='calendar'></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-info" style="color: white;">
+                              Listado de Doctores
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover  table-sm">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Telefono</th>
+                                            <th scope="col">Correo</th>
+                                            <th scope="col">Especialidad</th>
+                                            <th scope="col"></th>
+                                          </tr>
+                                        </thead>
+                                        <tbody id="tbody_doctor">
+
+                                        </tbody>
+                                      </table>
+                                </div>
+
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+
+
+        <footer>
+            <div class="">
+                Copyright © 2022 developerDanielPinto
+            </div>
+
+        </footer>
+    </div>
+
+    <!-- MODAL PARA EDITAR DOCTOR -->
+    <button type="button" id="btnModalEditDoctor" class="btn btn-primary" style="display: none;" data-toggle="modal" data-target="#modalEditDoctor">
+
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalEditDoctor" tabindex="-1" role="dialog" aria-labelledby="modalEditDoctorLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 class="modal-title text-info" id="modalEditDoctorLabel">Editar Doctor</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="form_edit_doctor">
+                <div class="form-group">
+                    <label for="nombre">* Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre y apellido del doctor." required>
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                    <label for="telefono">* Número Telefónico (Celular)</label>
+                    <input type="number" class="form-control" id="telefono" placeholder="Ingrese el número telefónico del doctor." required>
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                  <label for="email">* Correo Electrónico</label>
+                  <input type="email" class="form-control" id="correo" placeholder="Ingrese el correo electronico del doctor" required>
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                    <label for="especialidad">* Especialidad</label>
+                    <select name="especialidad" class="form-control" id="especialidad">
+                        <option value="Cirugía">Cirugía</option>
+                        <option value="Endodoncia">Endodoncia</option>
+                        <option value="Periodoncia">Periodoncia</option>
+                        <option value="Estetica">Estetica</option>
+                        <option value="Odontopediatría">Odontopediatría</option>
+                    </select>
+                </div>
+
+
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="btn_close_form_edit_doctor" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" id="submit_edit_doctor" class="btn btn-info">Actualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero rem eligendi eum placeat, possimus nisi iusto impedit, qui eius exercitationem alias id in fugit facere nam error quo nulla. Aliquid!
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap4-datetimepicker@5.2.3/src/js/bootstrap-datetimepicker.min.js"></script> -->
+    <script src="datetimepicker.js"></script>
+
+
+    <script src="script_indexdb.js"></script>
+
+    <script>
+       $(".date_cita").datetimepicker({
+          format: 'yyyy-mm-dd hh:ii',
+          autoclose: true
+          // startDate: Date.now()
+      });
+
+            
+      // document.addEventListener('DOMContentLoaded', function() {
+      //     var calendarEl = document.getElementById('calendar');
+      //     var calendar = new FullCalendar.Calendar(calendarEl, {
+      //       initialView: 'dayGridMonth'
+      //     });
+      //     calendar.render();
+      // });
+
+      
+
+      document.addEventListener('DOMContentLoaded', function () {
+
+        var calendarEl = document.getElementById('calendar');
+
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            height: 750,
+            defaultView: 'dayGridMonth',
+            nowIndicator: true,
+            dayMaxEvents: true, // allow "more" link when too many events
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+            locale: 'es',
+            buttonIcons: true, // show the prev/next text
+            navLinks: true, // can click day/week names to navigate views
+            displayEventEnd:true,
+            // eventLimit: true, // allow "more" link when too many events
+            views: {
+                dayGridMonth: {
+                    buttonText: 'Mes',
+                    // titleFormat: { year: 'numeric', month: '2-digit', day: '2-digit' }
+                },
+                listMonth: {
+                    buttonText: 'Agenda',
+                },
+                timeGridWeek: {
+                    buttonText: 'Semana ',
+                },
+                timeGridDay: {
+                    buttonText: 'Día ',
+                },
+                today: {
+                    buttonText: 'Hoy ',
+                },
+            },
+            selectMirror: true,
+            // eventSources: [{
+            //     url: "{{ route('schedule_shifts.calendar') }}",
+            //     method: 'post',
+            //     extraParams: {
+            //         "_token": "{{ csrf_token() }}",
+            //     },
+            //     failure: function () {
+            //         toastr.error('¡Hubo un error al recuperar eventos!');
+            //     },
+            // }],
+            eventDidMount: function(info) {
+                $(info.el).popover({
+                    title: info.event.extendedProps.titulo,
+                    content: info.event.extendedProps.description,
+                    placement: 'top',
+                    trigger: 'hover',
+                    container: 'body',
+                    html: true
+                });
+            },
+            eventTimeFormat: { // like '14:30:00'
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            },
+
+
+
+
+        });
+        calendar.render();
+        });
+
+        mostrarCitasCalendar();
+        function mostrarCitasCalendar() {
+          // if (tbody_paciente != null) {
+              let idb_clinica = indexedDB.open('clinica', 1)
+              idb_clinica.onsuccess = () => {
+                  let res = idb_clinica.result;
+                  let tx = res.transaction('cita', 'readonly')
+                  let store = tx.objectStore('cita')
+                  let cursor = store.openCursor();
+                  // tbody_paciente.innerHTML = "";
+                  cursor.onsuccess = () => {
+
+                      let curRes = cursor.result;
+                      if (curRes) {
+                        console.log('mostrar cita');
+                        console.log(curRes);
+
+  
+                        calendar.addEvent( event    [{ // this object will be "parsed" into an Event Object
+                            title: `Cita - ${curRes.value.fecha}`, // a property!
+                            start: `Fecha - ${curRes.value.fecha}`, 
+                            // end: '2018-09-02' // a property! ** see important note below about 'end' **
+                          }
+                        ] );
+
+                                                // // console.log(curRes.value.name);
+                          // tbody_paciente.innerHTML += `
+                          // <tr>
+                          // <td>${curRes.value.ci}</td>
+                          // <td>${curRes.value.nombre}</td>
+                          // <td>${curRes.value.telefono}</td>
+                          // <td>${curRes.value.correo}</td>
+                          // <td>${curRes.value.antecedentes}</td>
+                          // <td>
+                          //     <button type="button" class="btn btn-warning" onclick="modificarPaciente(${curRes.key})" ><i class="fa-solid fa-pen-to-square"></i></button>
+                          // </td>
+                          // <td>
+                          //     <button type="button" class="btn btn-danger" onclick="eliminarPaciente(${curRes.key})"><i class="fa-solid fa-trash-can"></i></button>
+                          // </td>
+                          // </tr>
+                          // `;
+                          curRes.continue()
+                      }
+
+                  }
+              }
+          // }
+      }
+
+
+        // calendar.addEvent( event [, source ] )
+    </script>
+
+
+</body>
+
+</html>
